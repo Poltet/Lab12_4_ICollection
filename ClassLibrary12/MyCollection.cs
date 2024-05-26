@@ -11,6 +11,45 @@ namespace ClassLibrary12
         public int Count => base.Count;
 
         public bool IsReadOnly => false;
+        public T this[int index] //индексатор
+        {
+            get
+            {
+                if (index < 0 || index >= Count)
+                    throw new Exception("Индекс находится за пределами коллекции");
+                int СurrentIndex = 0;
+                foreach (T item in this)
+                {
+                    if (СurrentIndex == index)
+                        return item;
+                    СurrentIndex++;
+                }
+                throw new Exception("Индекс находится за пределами коллекции");
+            }
+            set
+            {
+                if (index < 0 || index >= Count)
+                    throw new Exception("Индекс находится за пределами коллекции");
+
+                int СurrentIndex = 0;
+                Point<T> СurrentPoint;
+                foreach (Point<T> point in table)
+                {
+                    СurrentPoint = point;
+                    while (СurrentPoint != null)
+                    {
+                        if (СurrentIndex == index)
+                        {
+                            СurrentPoint.Data = value;
+                            return;
+                        }
+                        СurrentIndex++;
+                        СurrentPoint = СurrentPoint.Next;
+                    }
+                }
+                throw new IndexOutOfRangeException("Индекс находится за пределами коллекции");
+            }
+        }
 
         public void Add(T item)
         {

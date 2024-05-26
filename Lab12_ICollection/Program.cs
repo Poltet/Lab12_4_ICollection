@@ -10,6 +10,7 @@ namespace Lab12_ICollection
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }
