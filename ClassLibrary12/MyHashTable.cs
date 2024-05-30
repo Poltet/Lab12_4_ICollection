@@ -7,7 +7,7 @@ namespace ClassLibrary12
     {
         protected Point<T>[] table;
         int count = 0;                                  //Счетчик количества элементов в таблице
-        public int Capacity => table.Length; //Свойство для чтения размера таблицы
+        public int Capacity => table.Length;           //Свойство для чтения размера таблицы
         public int Count => count;                        //Свойство для чтения количества элементов в таблице
 
         public MyHashTable(int length = 10)  //Конструктор

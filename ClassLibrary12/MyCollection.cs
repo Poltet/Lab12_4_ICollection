@@ -8,7 +8,9 @@ namespace ClassLibrary12
 {
     public class MyCollection<T> : MyHashTable<T>, ICollection<T> where T : IInit, ICloneable, new()
     {
+        public MyCollection(int size = 10) : base(size) { }
         public int Count => base.Count;
+        public int Capacity => base.Capacity;
 
         public bool IsReadOnly => false;
         public T this[int index] //индексатор
@@ -24,7 +26,7 @@ namespace ClassLibrary12
                         return item;
                     СurrentIndex++;
                 }
-                throw new Exception("Индекс находится за пределами коллекции");
+                throw new Exception("Элемента нет в коллекции");
             }
             set
             {
@@ -40,14 +42,16 @@ namespace ClassLibrary12
                     {
                         if (СurrentIndex == index)
                         {
-                            СurrentPoint.Data = value;
+                            Remove(СurrentPoint.Data);
+                            Add(value);
+                            //СurrentPoint.Data = value;
                             return;
                         }
                         СurrentIndex++;
                         СurrentPoint = СurrentPoint.Next;
                     }
                 }
-                throw new IndexOutOfRangeException("Индекс находится за пределами коллекции");
+                throw new Exception("Элемента нет в коллекции");
             }
         }
 
@@ -101,7 +105,6 @@ namespace ClassLibrary12
                 }
             }
         }
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

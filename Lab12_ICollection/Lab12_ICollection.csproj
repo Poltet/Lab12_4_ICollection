@@ -36,6 +36,9 @@
     <Reference Include="ClassLibrary1">
       <HintPath>..\..\Lab10\ClassLibrary1\bin\Debug\ClassLibrary1.dll</HintPath>
     </Reference>
+    <Reference Include="ClassLibrary12">
+      <HintPath>..\ClassLibrary12\bin\Debug\ClassLibrary12.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
