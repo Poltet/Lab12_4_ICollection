@@ -46,10 +46,12 @@ namespace ClassLibrary12
                 Point<T> current = table[index];
                 while (current.Next != null)
                 {
-                    if (current.Equals(data))
-                        return;
+                    if (current.Data.Equals(data))
+                        throw new Exception("Ключ уже есть в коллекции.");
                     current = current.Next;
                 }
+                if (current.Data.Equals(data))
+                    throw new Exception("Ключ уже есть в коллекции.z");
                 current.Next = new Point<T>(data); //Добавление в конец цепочки
                 current.Next.Previous = current;
             }
@@ -133,7 +135,7 @@ namespace ClassLibrary12
             }
             count = 0;
         }
-        private int GetIndex(T data)
+        public int GetIndex(T data)
         {
             return Math.Abs(data.GetHashCode() % Capacity);
         }

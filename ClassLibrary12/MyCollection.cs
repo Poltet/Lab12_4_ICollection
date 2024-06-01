@@ -9,52 +9,17 @@ namespace ClassLibrary12
     public class MyCollection<T> : MyHashTable<T>, ICollection<T> where T : IInit, ICloneable, new()
     {
         public MyCollection(int size = 10) : base(size) { }
+        public MyCollection(MyCollection<T> c) : base(c.Capacity)
+        {
+            foreach (T item in c)
+            {
+                Add((T)item.Clone());
+            }
+        }
         public int Count => base.Count;
         public int Capacity => base.Capacity;
 
         public bool IsReadOnly => false;
-        public T this[int index] //индексатор
-        {
-            get
-            {
-                if (index < 0 || index >= Count)
-                    throw new Exception("Индекс находится за пределами коллекции");
-                int СurrentIndex = 0;
-                foreach (T item in this)
-                {
-                    if (СurrentIndex == index)
-                        return item;
-                    СurrentIndex++;
-                }
-                throw new Exception("Элемента нет в коллекции");
-            }
-            set
-            {
-                if (index < 0 || index >= Count)
-                    throw new Exception("Индекс находится за пределами коллекции");
-
-                int СurrentIndex = 0;
-                Point<T> СurrentPoint;
-                foreach (Point<T> point in table)
-                {
-                    СurrentPoint = point;
-                    while (СurrentPoint != null)
-                    {
-                        if (СurrentIndex == index)
-                        {
-                            Remove(СurrentPoint.Data);
-                            Add(value);
-                            //СurrentPoint.Data = value;
-                            return;
-                        }
-                        СurrentIndex++;
-                        СurrentPoint = СurrentPoint.Next;
-                    }
-                }
-                throw new Exception("Элемента нет в коллекции");
-            }
-        }
-
         public void Add(T item)
         {
             base.Add(item);

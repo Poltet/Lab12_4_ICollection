@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary12", "ClassLibrary12\ClassLibrary12.csproj", "{89025491-5D8A-49C2-98CF-1D26E47EE744}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject12_4", "UnitTestProject12_4\UnitTestProject12_4.csproj", "{635E6A8A-293B-42EA-AEC6-CD268697B854}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{89025491-5D8A-49C2-98CF-1D26E47EE744}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89025491-5D8A-49C2-98CF-1D26E47EE744}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89025491-5D8A-49C2-98CF-1D26E47EE744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635E6A8A-293B-42EA-AEC6-CD268697B854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635E6A8A-293B-42EA-AEC6-CD268697B854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635E6A8A-293B-42EA-AEC6-CD268697B854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635E6A8A-293B-42EA-AEC6-CD268697B854}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

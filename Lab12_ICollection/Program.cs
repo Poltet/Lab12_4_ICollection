@@ -34,13 +34,12 @@ namespace Lab12_ICollection
                 Console.WriteLine("5. Добавление элемента ");
                 Console.WriteLine("6. Удалить таблицу");
                 Console.WriteLine("7. Скопировать элементы таблицы в массив");
-                Console.WriteLine("8. Индексатор - чтение");
-                Console.WriteLine("9. Индексатор - установка значения");
-                Console.WriteLine("10. Перебор элементов циклом foreach");
-                Console.WriteLine("11. Счетчик элементов");
-                Console.WriteLine("12. Свойство для чтения");
-                Console.WriteLine("13. Выход");
-                answer = Number(1, 13, "Выберите нoмер задания");
+                Console.WriteLine("8. Перебор элементов циклом foreach");
+                Console.WriteLine("9. Счетчик элементов");
+                Console.WriteLine("10. Свойство для чтения");
+                Console.WriteLine("11. Конструктор копирования");
+                Console.WriteLine("12. Выход");
+                answer = Number(1, 14, "Выберите нoмер задания");
                 switch (answer)
                 {
                     case 1:     //Создать таблицу                
@@ -134,8 +133,8 @@ namespace Lab12_ICollection
                             }
                             catch (Exception e)
                             {
-                                Console.WriteLine(e.Message);
-                                Console.WriteLine("Элемент не добавлен");
+                                Console.Write(e.Message);
+                                Console.WriteLine(" Элемент не добавлен");
                             }
                             break;
                         }
@@ -165,49 +164,7 @@ namespace Lab12_ICollection
                             }
                             break;
                         }
-                    case 8: //Индексатор - чтение
-                        {
-                            if (table == null || table.Count == 0)
-                                Console.WriteLine("\nТаблица пустая");
-                            else
-                            {
-                                int index = Number(0, table.Capacity * table.Count, "Введите индекс");
-                                try
-                                {
-                                    Console.WriteLine($" Найден элемент: {table[index]}");
-                                }
-                                catch (Exception e)
-                                {
-                                    Console.WriteLine(e.Message);
-                                }
-                            }
-                            break;
-                        }
-                    case 9: //Индексатор - установка значения
-                        {
-                            if (table == null || table.Count == 0)
-                                Console.WriteLine("\nТаблица пустая");
-                            else
-                            {
-                                int index = Number(0, table.Capacity * table.Count, "Введите индекс");
-                                CelestialBody celbody = new CelestialBody();
-                                if (index <= table.Count)
-                                {
-                                    Console.WriteLine("Введите новое значение");
-                                    celbody.Init();
-                                }
-                                try
-                                {
-                                    table[index] = celbody;
-                                }
-                                catch (Exception e)
-                                {
-                                    Console.WriteLine(e.Message);
-                                }
-                            }
-                            break;
-                        }
-                    case 10: //Перебор элементов циклом foreach
+                    case 8: //Перебор элементов циклом foreach
                         {
                             if (table == null || table.Count == 0)
                                 Console.WriteLine("\nТаблица пустая");
@@ -218,12 +175,12 @@ namespace Lab12_ICollection
                             }
                             break;
                         }
-                    case 11: //Счетчик элементов
+                    case 9: //Счетчик элементов
                         {
                             Console.WriteLine($"\nВ коллекции {table.Count} элементов");
                             break;
                         }
-                    case 12: //Свойство для чтения
+                    case 10: //Свойство для чтения
                         {
                         if (table.IsReadOnly)
                             Console.WriteLine("\nКоллеция доступна только для чтения");
@@ -231,8 +188,20 @@ namespace Lab12_ICollection
                             Console.WriteLine("\nКоллекция доступна не только для чтения");
                         break;
                     }
+                    case 11: //Конструктор копирования
+                    {
+                        if (table == null || table.Count == 0)
+                            Console.WriteLine("\nТаблица пустая");
+                        else
+                        {
+                            Console.WriteLine("\nСкопированная таблица");
+                            MyCollection<CelestialBody> CopyTable = new MyCollection<CelestialBody>(table);
+                            CopyTable.PrintTable();
+                        }
+                        break;
+                    }
                 }
-            } while (answer != 13);
+            } while (answer != 12);
         }
     }
 }

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ClassLibrary1;
+using System;
 
 namespace ClassLibrary12
 {
-    public class Point<T> where T : new()
+    public class Point<T> where T : IInit, ICloneable, new()
     {
         public T Data { get; set; }            //Информационное поле 
         public Point<T> Next { get; set; }     //Адресное поле на след. элеменет 
